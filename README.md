@@ -1,9 +1,9 @@
 
-# README
+![](https://miro.medium.com/v2/resize:fit:1400/1*eMb_xmKGM1rcC4zPgZA1NQ.png)
 
 ## Project Overview
 
-This project demonstrates the use of the LangChain library to build a Retrieval-Augmented Generation (RAG) pipeline. The pipeline involves loading data from a web source, creating vector embeddings for the data, and building a retriever for question answering tasks using a language model.
+This project demonstrates the use of the LangChain library to build a Retrieval-Augmented Generation (RAG) pipeline. The pipeline involves loading data from a web source, creating vector embeddings for the data, and building a retriever for question-answering tasks using a language model. The goal is to enhance the capability of language models to provide accurate and contextually relevant answers by leveraging external knowledge sources.
 
 ## Prerequisites
 
