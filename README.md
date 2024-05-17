@@ -119,7 +119,7 @@ def split_text(text, max_chunk_size=1000):
         chunks.append(" ".join(chunk))
     return chunks
 
-pdf_path = '/path/to/your/human-nutrition-text.pdf'
+pdf_path = '/path/to/human-nutrition-text.pdf'
 document_content = extract_text_from_pdf(pdf_path)
 document_chunks = split_text(document_content)
 
@@ -135,42 +135,6 @@ documents = [Document(page_content=chunk) for chunk in document_chunks]
 5. **Query Processing**: When a query is made, retrieve relevant chunks based on their embeddings, ensuring accurate and contextually relevant responses.
 
 By chunking the text, you ensure that the processing stays within the limits of the models being used, improves the efficiency and accuracy of retrieval, and ultimately enhances the performance of the RAG pipeline.
-
-   ```python
-   import fitz
-   from langchain_core.schema import Document
-
-   def extract_text_from_pdf(pdf_path):
-       pdf_document = fitz.open(pdf_path)
-       text = ""
-       for page_num in range(len(pdf_document)):
-           page = pdf_document.load_page(page_num)
-           text += page.get_text()
-       return text
-
-   def split_text(text, max_chunk_size=1000):
-       words = text.split()
-       chunks = []
-       chunk = []
-       chunk_size = 0
-       for word in words:
-           if chunk_size + len(word) + 1 <= max_chunk_size:
-               chunk.append(word)
-               chunk_size += len(word) + 1
-           else:
-               chunks.append(" ".join(chunk))
-               chunk = [word]
-               chunk_size = len(word) + 1
-       if chunk:
-           chunks.append(" ".join(chunk))
-       return chunks
-
-   pdf_path = '/path/to/your/human-nutrition-text.pdf'
-   document_content = extract_text_from_pdf(pdf_path)
-   document_chunks = split_text(document_content)
-
-   documents = [Document(page_content=chunk) for chunk in document_chunks]
-   ```
 
 5. **Create vector embeddings**:
 
